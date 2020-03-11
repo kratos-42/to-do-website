@@ -1,6 +1,6 @@
 # Setup
 
-Build API docker image from [https://github.com/kratos-42/to-do-api](API repository):
+Build API docker image from [API repository](https://github.com/kratos-42/to-do-api):
 
 ```sh
 docker build -t to-do-api .
