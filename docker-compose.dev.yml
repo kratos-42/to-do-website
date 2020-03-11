@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  database:
+      image: postgres:latest
+      ports:
+        - 5432:5432
+      environment:
+        POSTGRES_PASSWORD: '1234'
+        DATABASE_URL: localhost
+      volumes:
+        - ./api-datatabase:/var/lib/postgresql/data
+
+  api:
+      image: to-do-api:latest
+      links:
+        - database
+      ports:
+        - 8000:8000
+      environment:
+        - SERVER_PORT=8000
+        - NODE_ENV=development
+        - DATABASE_CONNECTION_HOST=database
